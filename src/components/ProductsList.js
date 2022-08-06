@@ -30,7 +30,6 @@ function ProductsList() {
         return (
           <div key={product._id} className="products">
             <h2>{product.title}</h2>
-            {/* <img src={apartment.img} /> <br /> */}
             <Link to={`/products/${product._id}`}>Read more</Link>
           </div>
         );

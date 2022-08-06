@@ -8,6 +8,8 @@ import AdviceDetails from './components/AdviceDetails';
 import ProductDetails from './components/ProductDetails';
 import EditAdvicePage from './components/EditAdvicePage';
 import CreateAdvicePage from './components/CreateAdvicePage ';
+import SignupPage from './components/SignupPage';
+import LoginPage from './components/LoginPage';
 
 
 function App() {
@@ -25,6 +27,9 @@ function App() {
         <Route path='/advices/:adviceId' element={ <AdviceDetails />} />
         <Route path='/products/:productId' element={ <ProductDetails />} />
         <Route path="/advices/edit/:adviceId" element={ <EditAdvicePage />} />
+
+        <Route path="/signup" element={ <SignupPage /> } />
+        <Route path="/login" element={ <LoginPage /> } />
       </Routes>
 
     </div>
