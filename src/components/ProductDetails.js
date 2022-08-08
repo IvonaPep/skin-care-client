@@ -26,6 +26,7 @@ function ProductDetails() {
 
   return (
     <div>
+       {console.log(product)}
       {product && (
         <>
           <h1>{product.title}</h1>
@@ -33,8 +34,10 @@ function ProductDetails() {
           <p>{product?.brands}</p>
         </>
       )}
+     
       {product &&
-        product.advices?.map((advice) => (
+   
+        product.advices.map((advice) => (
           <li key={advice._id}>
             <Link to={`/advices/${advice._id}`}>
             <h3>{advice.title}</h3>
@@ -43,9 +46,9 @@ function ProductDetails() {
            
           </li>
         ))}
-      {/* <Link to={`/products/edit/${adviceId}`}> */}
+      {/* <Link to={`/products/edit/${productId}`}>
         <button>Edit</button>
-      {/* </Link> */}
+      </Link> */}
       &nbsp;
       <Link to="/products">
         <button>Back to products</button>

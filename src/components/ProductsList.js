@@ -25,7 +25,12 @@ function ProductsList() {
 
   return (
     <div >
+      
       <h1>List of Products</h1>
+
+      <Link to={`/products/create`}>
+<button>Add a new product</button>
+</Link>
       {products.map((product) => {
         return (
           <div key={product._id} className="products">

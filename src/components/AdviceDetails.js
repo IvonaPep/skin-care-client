@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
 
+
 function AdviceDetails() {
   const [advice, setAdvice] = useState(null);
 
@@ -25,7 +26,9 @@ function AdviceDetails() {
   }, []);
 
   return (
+   
     <div>
+       {console.log(advice)}
       {advice && (
         <>
           <h1>{advice.title}</h1>

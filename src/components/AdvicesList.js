@@ -35,7 +35,6 @@ function AdvicesList() {
         return (
           <div key={advice._id} className="advices">
             <h2>{advice.title}</h2>
-            {/* <img src={apartment.img} /> <br /> */}
             <Link to={`/advices/${advice._id}`}>Read more</Link>
           </div>
         );

@@ -10,7 +10,10 @@
   color: black;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-brand{
+  text-decoration: none;
 }
 
+.carousel-img{
+  height: 50vh;
+}

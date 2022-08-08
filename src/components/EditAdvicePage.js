@@ -32,7 +32,7 @@ function EditAdvicePage() {
    
     const requestBody = { title, problemDescription, advice };
 
-    // Make a PUT request to update the project
+    // Make a PUT request to update the advice
     axios
         .put(
             `${process.env.REACT_APP_API_URL}/advices/${adviceId}`, 
@@ -40,13 +40,14 @@ function EditAdvicePage() {
             { headers: { Authorization: `Bearer ${storedToken}` } }
         )
         .then((response) => {
-           
             navigate(`/advices/${adviceId}`)
         });
 };
  
 const deleteAdvice = () => {         
   
+
+
   axios
     .delete(`${process.env.REACT_APP_API_URL}/advices/${adviceId}`,
     { headers: { Authorization: `Bearer ${storedToken}` } }

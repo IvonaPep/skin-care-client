@@ -8,23 +8,23 @@ function Navbar() {
 
     return (
       <div className="">
-        <nav>
-          <NavLink to="/">Home |</NavLink>
-          <NavLink to="/advices">Advices |</NavLink>
-          <NavLink to="/products">Products |</NavLink>
+        <nav className="navbar fixed-top navbar-light bg-light">
+          <NavLink className="navbar-brand mx-2" to="/">Home </NavLink>
+          <NavLink className="navbar-brand mx-2" to="/advices">Advices</NavLink>
+          <NavLink className="navbar-brand mx-2" to="/products">Products</NavLink>
 
 
           {isLoggedIn && (
                 <>
-                    <span> Hi, {user && user.username}</span> 
-                    <button onClick={logOutUser}>Logout</button>
+                    <span className="mx-2 ms-auto"> {user && user.username}</span> 
+                    <button className="navbar-brand me-3 ms-auto" onClick={logOutUser}>Logout</button>
                 </>
             )}
 
             {!isLoggedIn && (
                 <>
-                    <NavLink to="/signup">Sign Up</NavLink> | 
-                    <NavLink to="/login">Login</NavLink>
+                    <NavLink className="navbar-brand mx-2 ms-auto" to="/signup">Sign Up</NavLink>
+                    <NavLink className="navbar-brand mx-2 me-3" to="/login">Login</NavLink>
                 </>
             )}
 
