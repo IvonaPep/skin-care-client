@@ -46,9 +46,9 @@ function ProductDetails() {
            
           </li>
         ))}
-      {/* <Link to={`/products/edit/${productId}`}>
+      <Link to={`/products/edit/${productId}`}>
         <button>Edit</button>
-      </Link> */}
+      </Link>
       &nbsp;
       <Link to="/products">
         <button>Back to products</button>

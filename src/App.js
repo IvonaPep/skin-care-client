@@ -14,6 +14,7 @@ import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import CreateProductPage from './components/CreateProductPage ';
 import { useState } from 'react';
+import EditProductPage from './components/EditProductPage';
 
 
 
@@ -38,7 +39,7 @@ function App() {
         <Route path='/advices/:adviceId' element={ <AdviceDetails />} />
         <Route path='/products/:productId' element={ <ProductDetails />} />
         <Route path="/advices/edit/:adviceId" element={<IsPrivate> <EditAdvicePage /> </IsPrivate>} />
-
+        <Route path="/products/edit/:productId" element={<IsPrivate> <EditProductPage /> </IsPrivate>} />
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon> } />
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon> } />
       </Routes>
