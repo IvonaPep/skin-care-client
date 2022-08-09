@@ -1,15 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Libre+Baskerville&display=swap');
 
-body {
-  text-align: center;
-  background-color: #decbba;
+body{
+  padding-top: 6em;
 }
 
+.App {
+  text-align: center;
+}
+
+h2, h3, h4 {
+  font-family: 'Dancing Script', "cursive";
+  color: #674440;
+}
 h1{
   font-family: 'Dancing Script', "cursive";
+  color:#af064f;
+}
+.carousel-h1{
+  font-family: 'Dancing Script', "cursive";
   font-size: 4em;
+  color: white;
 }
 
+p{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .navbar{
 background-color: #b98c87;
 }
@@ -31,4 +46,55 @@ background-color: #b98c87;
   left:0;
   right:0;
   background:rgba(189, 188, 188, 0.7);
+}
+
+.card .card-header{
+  background-color: #dac0a7;
+  color: #674440;;
+}
+
+.card p{
+  color:#af064f;
+  font-weight: bolder;
+}
+ .link{
+  text-decoration: none;
+  color:#674440;
+ }
+
+ .advice-subheader{
+ font-weight: bolder;
+ font-size: larger;
+ color:#dcd5ce;
+ background-color: #674440;
+ margin-bottom: 3em;
+ }
+
+.advice-text{
+  margin: 3em;
+  color: #674440;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.link-to{
+  font-weight: bolder;
+ color:#dcd5ce;
+ background-color: #674440;
+ margin-bottom: 3em;
+}
+
+li{
+  list-style-type: none;
+}
+
+.link-deco{
+  text-decoration-color: #af064f;
+}
+
+.link-deco p{
+  color: #af064f;
+  font-family: 'Dancing Script', "cursive";
+  font-size: x-large;
+
 }

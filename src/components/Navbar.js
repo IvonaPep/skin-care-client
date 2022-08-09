@@ -7,9 +7,9 @@ function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext); 
 
     return (
-      <div className="">
+  
         <nav className="navbar fixed-top">
-          <NavLink className="navbar-brand mx-2" to="/">Home </NavLink>
+          <NavLink className="navbar-brand mx-4" to="/">Home </NavLink>
           <NavLink className="navbar-brand mx-2" to="/advices">Advices</NavLink>
           <NavLink className="navbar-brand mx-2" to="/products">Products</NavLink>
 
@@ -30,7 +30,6 @@ function Navbar() {
 
         </nav>
         
-      </div>
     );
   }
 

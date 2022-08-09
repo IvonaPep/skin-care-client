@@ -18,8 +18,8 @@ function HomePage() {
             src={require("../images/silk.jpeg")}
             alt="First slide"
           />
-          <Carousel.Caption>
-            <h1>SkincareHacks</h1>
+          <Carousel.Caption className="mb-5">
+            <h1 className="carousel-h1">SkincareHacks</h1>
             <p>
               Struggling with some skin issue? Find here some great advices and
               products to help your skin shine.
@@ -33,7 +33,7 @@ function HomePage() {
             alt="Second slide"
           />
 
-          <Carousel.Caption>
+          <Carousel.Caption className="mb-5">
             <h1>SkincareHacks</h1>
             <p>
               You have skin-advices for others? Share your experiences and help
@@ -48,9 +48,9 @@ function HomePage() {
             alt="Third slide"
           />
 
-          <Carousel.Caption>
+          <Carousel.Caption className="mb-5">
             <h1>SkincareHacks</h1>
-            <p>Just here to read? Get your inspiration.</p>
+            <p>Here to get inspiration and new Hacks? Let`s go!</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

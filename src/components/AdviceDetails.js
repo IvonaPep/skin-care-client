@@ -27,23 +27,22 @@ function AdviceDetails() {
 
   return (
    
-    <div>
+    <div className="row justify-content-center">
        {console.log(advice)}
       {advice && (
         <>
-          <h1>{advice.title}</h1>
-          <p>{advice.problemDescription}</p>
-          <p>{advice.advice}</p>
+          <h1 className="mt-5">{advice.title}</h1>
+          <p className="advice-subheader w-50">{advice.problemDescription}</p>
+          <p className="advice-text w-50">{advice.advice}</p>
         </>
       )}
+      <p className="link-to w-50">This products can help:</p>
       {advice &&
         advice.products.map((product) => (
           <li key={product._id}>
-            <Link to={`/products/${product._id}`}>
-            <h3>{product.title}</h3>
+            <Link className="link-deco" to={`/products/${product._id}`}>
+            <p>{product.title}</p>
             </Link>
-
-           
           </li>
         ))}
       <Link to={`/advices/edit/${adviceId}`}>
@@ -51,7 +50,7 @@ function AdviceDetails() {
       </Link>
       &nbsp;
       <Link to="/advices">
-        <button>Back to advices</button>
+        <button className="mb-5">Back to advices</button>
       </Link>
     </div>
   );

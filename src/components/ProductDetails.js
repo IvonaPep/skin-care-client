@@ -25,22 +25,21 @@ function ProductDetails() {
   }, []);
 
   return (
-    <div>
+    <div className="row justify-content-center">
        {console.log(product)}
       {product && (
         <>
-          <h1>{product.title}</h1>
-          <p>{product.description}</p>
-          <p>{product?.brands}</p>
+          <h1 className="mt-5">{product.title}</h1>
+          <p className="advice-text w-50">{product.description}</p>
+          <p className="">{product?.brands}</p>
         </>
-      )}
-     
+      )}<br/>
+     <p className="link-to w-50">Look also here for more tips:</p>
       {product &&
-   
-        product.advices.map((advice) => (
+           product.advices.map((advice) => (
           <li key={advice._id}>
-            <Link to={`/advices/${advice._id}`}>
-            <h3>{advice.title}</h3>
+            <Link className="link-deco" to={`/advices/${advice._id}`}>
+            <p>{advice.title}</p>
             </Link>
 
            
@@ -51,7 +50,7 @@ function ProductDetails() {
       </Link>
       &nbsp;
       <Link to="/products">
-        <button>Back to products</button>
+        <button className="mb-5">Back to products</button>
       </Link>
     </div>
   );

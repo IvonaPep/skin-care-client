@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import '../App.css';
+import "../App.css";
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
@@ -15,30 +15,46 @@ function ProductsList() {
       .get(process.env.REACT_APP_API_URL + `/products`)
       .then((response) => {
         setProducts(response.data);
-
       })
       .catch((e) => {
         console.log(e);
       });
   };
 
-
   return (
-    <div >
-      
+    <div>
       <h1>List of Products</h1>
-
-      <Link to={`/products/create`}>
-<button>Add a new product</button>
-</Link>
-      {products.map((product) => {
-        return (
-          <div key={product._id} className="products">
-            <h2>{product.title}</h2>
-            <Link to={`/products/${product._id}`}>Read more</Link>
-          </div>
-        );
-      })}
+      <button class="btn-lg btn-info m-3">
+        <Link className="link" to={`/products/create`}>
+          Add a new product
+        </Link>
+      </button>
+      <div className="container">
+        <div className=" row justify-content-center mt-5"></div>
+        <div className="row justify-content-center">
+          {products.map((product) => {
+            return (
+              <div className="col-10 col-sm-6 d-flex">
+                <div className="card text-center shadow-lg p-4 mb-5 w-75">
+                  <div key={product._id} className="advices">
+                    <div className="card-header">
+                      <h3>{product.title}</h3>
+                    </div>
+                    <div className="card-body">
+                      <Link
+                        to={`/products/${product._id}`}
+                        className="btn btn-light btn-sm"
+                      >
+                        See product
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

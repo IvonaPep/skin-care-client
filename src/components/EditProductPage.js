@@ -74,7 +74,7 @@ return (
               onChange={(e) => setDescription(e.target.value)}
           />
 
-          <button type="submit">Update Advice</button>
+          <button type="submit">Update Product</button>
       </form>
       <button onClick={deleteProduct}>Delete Product</button>
   </div>
