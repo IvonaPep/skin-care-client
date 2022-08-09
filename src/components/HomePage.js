@@ -11,7 +11,7 @@ function HomePage() {
 
   return (
     <div>
-      <Carousel className="" activeIndex={index} onSelect={handleSelect}>
+      <Carousel className="" controls={false} activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item className="carousel-item">
           <img
             className="carousel-img d-block w-100 mx-auto"
