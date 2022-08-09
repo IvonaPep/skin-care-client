@@ -1,79 +1,74 @@
 import { Link } from "react-router-dom";
-import Carousel from 'react-bootstrap/Carousel';
+import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
 
-
 function HomePage() {
-  
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
-    setIndex (selectedIndex);
+    setIndex(selectedIndex);
   };
 
   return (
-  
+    <div>
+      <Carousel className="" activeIndex={index} onSelect={handleSelect}>
+        <Carousel.Item className="carousel-item">
+          <img
+            className="carousel-img d-block w-100 mx-auto"
+            src={require("../images/silk.jpeg")}
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h1>SkincareHacks</h1>
+            <p>
+              Struggling with some skin issue? Find here some great advices and
+              products to help your skin shine.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item className="carousel-item">
+          <img
+            className="carousel-img d-block w-100 mx-auto"
+            src={require("../images/silk.jpeg")}
+            alt="Second slide"
+          />
 
-<Carousel className="" interval={null} activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <img
-          className="carousel-img d-block w-80 mx-auto"
-          // src={require("../images/beauty2.jpeg")}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="carousel-img d-block w-80 mx-auto"
-          // src={require("../images/beauty15.jpeg")}
-          alt="Second slide"
-        />
+          <Carousel.Caption>
+            <h1>SkincareHacks</h1>
+            <p>
+              You have skin-advices for others? Share your experiences and help
+              others find their skincare-routine.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item className="carousel-item">
+          <img
+            className="carousel-img d-block w-100 mx-auto"
+            src={require("../images/silk.jpeg")}
+            alt="Third slide"
+          />
 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="carousel-img d-block w-80 mx-auto"
-          // src={require("../images/beauty12.webp")}
-          alt="Third slide"
-        />
+          <Carousel.Caption>
+            <h1>SkincareHacks</h1>
+            <p>Just here to read? Get your inspiration.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
 
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-// </div>
-
-
-
-
-
-
-
-//       <h1>Skincare Hacks</h1>
-// <div>
-//     Some div with explanation about the page...
-// </div>
-
-//       <div>
-//         <Link to={"/advices"}>Advices</Link>
-//       </div>
-//       <div>
-//         <Link to={"/products"}>Products</Link>
-//       </div>
-//     </div>
+      <div className="container">
+        <div className=" row justify-content-center m-5">
+        <div className="card col-10 col-sm-6 col-md-5 d-flex text-center shadow-lg p-3 m-3">
+        <img src={require("../images/beauty6.jpeg")} class="card-img-top img-fluid max-width:100% height:auto" alt=""/>
+          <Link to={"/advices"}>Advices</Link>
+        </div>
+        
+        <div className="card col-10 col-sm-6 col-md-5 d-flex text-center shadow-lg p-3 m-3">
+        <img src={require("../images/beauty35.jpeg")} class="card-img-top img-fluid max-width:100% height:auto" alt=""/>
+          <Link to={"/products"}>Products</Link>
+        </div>
+        </div>
+        </div>
+      </div>
   );
 }
-
 export default HomePage;

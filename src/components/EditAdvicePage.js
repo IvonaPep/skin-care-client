@@ -47,7 +47,6 @@ function EditAdvicePage() {
 const deleteAdvice = () => {         
   
 
-
   axios
     .delete(`${process.env.REACT_APP_API_URL}/advices/${adviceId}`,
     { headers: { Authorization: `Bearer ${storedToken}` } }

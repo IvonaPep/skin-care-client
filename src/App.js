@@ -13,16 +13,10 @@ import LoginPage from './components/LoginPage';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import CreateProductPage from './components/CreateProductPage ';
-import { useState } from 'react';
 import EditProductPage from './components/EditProductPage';
 
 
-
-
-
-
 function App() {
-
 
   return (
     <div className="App">
