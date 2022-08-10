@@ -10,12 +10,9 @@ function CreateProductPage() {
   const [advices, setAdvices] = useState([]);
   const [chosenAdvices, setChosenAdvices] = useState([]);
 
-  const [products, setProducts] = useState("");
-
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
 
-  console.log(chosenAdvices);
   const storedToken = localStorage.getItem("authToken");
 
   useEffect(() => {
@@ -39,27 +36,13 @@ function CreateProductPage() {
     setErrorMsg("");
 
     const requestBody = { title, description, brands, advices: chosenAdvices };
-console.log(requestBody)
-    // const fetchProducts = () => {
-    //   axios
-    //     .get(process.env.REACT_APP_API_URL + `/products`)
-    //     .then((response) => {
-    //       setProducts(response.data);
-    //     })
-    //     .catch((e) => {
-    //       console.log(e);
-    //     });
-    // };
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/products/create`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // fetchProducts();
-        console.log("product created with :", response);
-
-
+   
         setTitle("");
         setDescription("");
         setBrands("");

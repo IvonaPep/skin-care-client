@@ -17,7 +17,7 @@ function SignupPage(props) {
     const handleSignupSubmit = (e) => {
         e.preventDefault();
         
-        const requestBody = { password, username };
+        const requestBody = { username, password };
 
         axios.post(`${process.env.REACT_APP_API_URL}/signup`, requestBody)
             .then((response) => {

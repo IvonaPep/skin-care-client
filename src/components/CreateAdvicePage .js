@@ -3,17 +3,19 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
 
+
 function CreateAdvicePage() {
   const [title, setTitle] = useState("");
   const [problemDescription, setProblemDescription] = useState("");
   const [advice, setAdvice] = useState("");
-  const [advices, setAdvices] = useState("");
   const [products, setProducts] = useState([]);
   const [chosenProducts, setChosenProducts] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
-
+  
   const storedToken = localStorage.getItem("authToken");
+  
+
 
   useEffect(() => {
     fetchProducts();
@@ -38,24 +40,12 @@ function CreateAdvicePage() {
 
     const requestBody = { title, problemDescription, advice, products: chosenProducts };
 
-    // const fetchAdvices = () => {
-    //   axios
-    //     .get(process.env.REACT_APP_API_URL + `/advices`)
-    //     .then((response) => {
-    //       setAdvices(response.data);
-    //     })
-    //     .catch((e) => {
-    //       console.log(e);
-    //     });
-    // };
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/advices/create`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // fetchAdvices();
-        console.log("advice created with :", response);
 
         setTitle("");
         setProblemDescription("");
@@ -115,7 +105,7 @@ function CreateAdvicePage() {
               );
             })}
           </select>
-        </label>
+        </label> 
         <button type="submit">Create Advice</button>
       </form>
     </div>
