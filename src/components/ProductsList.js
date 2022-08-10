@@ -24,18 +24,17 @@ function ProductsList() {
   return (
     <div>
       <h1>List of Products</h1>
-      <button class="btn-lg btn-info m-3">
+      <button className="btn btn-light my-4">
         <Link className="link" to={`/products/create`}>
           Add a new product
         </Link>
       </button>
       <div className="container">
-        <div className=" row justify-content-center mt-5"></div>
         <div className="row justify-content-center">
           {products.map((product) => {
             return (
-              <div className="col-10 col-sm-6 d-flex">
-                <div className="card text-center shadow-lg p-4 mb-5 w-75">
+              <div className="card-deck col-10 col-sm-5 d-flex">
+                <div className="card text-center shadow-lg p-4 m-4 w-100">
                   <div key={product._id} className="advices">
                     <div className="card-header">
                       <h3>{product.title}</h3>

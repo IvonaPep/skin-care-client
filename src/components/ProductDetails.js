@@ -26,7 +26,6 @@ function ProductDetails() {
 
   return (
     <div className="row justify-content-center">
-       {console.log(product)}
       {product && (
         <>
           <h1 className="mt-5">{product.title}</h1>
@@ -46,11 +45,11 @@ function ProductDetails() {
           </li>
         ))}
       <Link to={`/products/edit/${productId}`}>
-        <button>Edit</button>
+        <button className="btn btn-light btn-sm">Edit</button>
       </Link>
       &nbsp;
       <Link to="/products">
-        <button className="mb-5">Back to products</button>
+        <button className="btn btn-light btn-sm mb-5 mt-2">Back to products</button>
       </Link>
     </div>
   );

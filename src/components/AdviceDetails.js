@@ -9,7 +9,6 @@ function AdviceDetails() {
 
   const { adviceId } = useParams();
 
-  
   const getOneAdvice = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/advices/${adviceId}`)
@@ -26,9 +25,8 @@ function AdviceDetails() {
   }, []);
 
   return (
-   
+ 
     <div className="row justify-content-center">
-       {console.log(advice)}
       {advice && (
         <>
           <h1 className="mt-5">{advice.title}</h1>
@@ -46,11 +44,10 @@ function AdviceDetails() {
           </li>
         ))}
       <Link to={`/advices/edit/${adviceId}`}>
-        <button>Edit</button>
+        <button className="btn btn-light btn-sm">Edit</button>
       </Link>
-      &nbsp;
       <Link to="/advices">
-        <button className="mb-5">Back to advices</button>
+        <button className="btn btn-light btn-sm mb-5 mt-2">Back to advices</button>
       </Link>
     </div>
   );

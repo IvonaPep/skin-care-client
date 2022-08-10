@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
 
@@ -9,15 +9,15 @@ function EditAdvicePage() {
   const [advice, setAdvice] = useState("");
   const [products, setProducts] = useState([]);
   const [chosenProducts, setChosenProducts] = useState([]);
-
   const { adviceId } = useParams();
   const navigate = useNavigate();
 
+ 
   const storedToken = localStorage.getItem("authToken");
-
   useEffect(() => {
     fetchProducts();
   }, []);
+
 
   const fetchProducts = () => {
     axios
@@ -48,7 +48,7 @@ function EditAdvicePage() {
     e.preventDefault();
    
     const requestBody = { title, problemDescription, advice, products: chosenProducts };
-
+    
     // Make a PUT request to update the advice
     axios
         .put(
@@ -57,13 +57,13 @@ function EditAdvicePage() {
             { headers: { Authorization: `Bearer ${storedToken}` } }
         )
         .then((response) => {
+         
             navigate(`/advices/${adviceId}`)
         });
 };
  
 const deleteAdvice = () => {         
   
-
   axios
     .delete(`${process.env.REACT_APP_API_URL}/advices/${adviceId}`,
     { headers: { Authorization: `Bearer ${storedToken}` } }
@@ -75,36 +75,39 @@ const deleteAdvice = () => {
 };  
 
 return (
-  <div>
-      <h3>Edit Advice</h3>
+  <div className="row justify-content-center">
+      <h3 className="m-3">Edit Advice</h3>
 
-      <form onSubmit={handleFormSubmit}>
+      <form className="w-50 m-2" onSubmit={handleFormSubmit}>
+      <div className="form-group my-3">
           <label>Title:</label>
-          <input
+          <input className="form-control my-3"
               type="text"
               name="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
           />
-
+</div>
+<div className="form-group">
           <label>Description of Skin-Issue:</label>
-          <textarea
+          <textarea className="form-control my-3"
               name="problemDescription"
               value={problemDescription}
               onChange={(e) => setProblemDescription(e.target.value)}
           />
-
+</div>
+<div className="form-group">
 <label>Advice to solve Skin-Issue:</label>
-          <textarea
+          <textarea className="form-control my-3"
               name="advice"
               value={advice}
               onChange={(e) => setAdvice(e.target.value)}
           />
-
+</div>
+<div className="form-group">
 <label>
           Select products related:
-          <br /> 
-          <select
+          <select className="form-control my-3"
             multiple={true}
             value={chosenProducts}
             onChange={(e) => {
@@ -120,9 +123,10 @@ return (
             })}
           </select>
         </label> 
-          <button type="submit">Update Advice</button>
-      </form>
-      <button onClick={deleteAdvice}>Delete Advice</button>
+        </div>
+          <button className="btn btn-light" type="submit">Update Advice</button> <br/>
+          <button className="btn btn-outline-danger btn-sm m-5" onClick={deleteAdvice}>Delete Advice</button>
+      </form>    
   </div>
 );
 }

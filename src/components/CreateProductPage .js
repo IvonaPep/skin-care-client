@@ -56,38 +56,41 @@ function CreateProductPage() {
   };
 
   return (
-    <div>
-      <h3>Add your Product:</h3>
+    <div className="row justify-content-center">
+      <h3 className="m-3">Add your Product:</h3>
 
-      <form onSubmit={handleSubmit}>
+      <form className="w-50 m-2" onSubmit={handleSubmit}>
+      <div className="form-group my-3">
         <label>Title:</label>
-        <input
+        <input className="form-control my-3"
           type="text"
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <br />
+        </div>
+        <div className="form-group">
         <label>Description of the Product:</label>
-        <textarea
+        <textarea className="form-control my-3"
           type="text"
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <br />
+        </div>
+        <div className="form-group">
         <label>Brands:</label>
-        <textarea
+        <textarea className="form-control my-3"
           type="text"
           name="brands"
           value={brands}
           onChange={(e) => setBrands(e.target.value)}
         />
-        <br />
+        </div>
+        <div className="form-group">
         <label>
           Select advices related:
-          <br />
-          <select
+          <select className="form-control my-3"
             multiple={true}
             value={chosenAdvices}
             onChange={(e) => {
@@ -103,9 +106,8 @@ function CreateProductPage() {
             })}
           </select>
         </label>
-
-        <br />
-        <button type="submit">Add Product</button>
+        </div>
+        <button className="btn btn-light my-4" type="submit">Add Product</button>
       </form>
     </div>
   );

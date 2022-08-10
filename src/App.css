@@ -33,7 +33,11 @@ background-color: #b98c87;
   color: #674440;
   font-family: 'Dancing Script', "cursive";
 }
-
+.username{
+  font-family: 'Dancing Script', "cursive";
+  font-size: xx-large;
+  color: #563936;
+}
 .carousel-img{
   height: 50vh;
 }
@@ -74,7 +78,7 @@ background-color: #b98c87;
   margin: 3em;
   color: #674440;
   font-weight: bold;
-  font-size: x-large;
+  font-size: larger;
 }
 
 .link-to{
@@ -97,4 +101,14 @@ li{
   font-family: 'Dancing Script', "cursive";
   font-size: x-large;
 
+}
+
+form label, .form-p{
+  font-family: 'Dancing Script', "cursive";
+  color: #af064f;
+  font-size:x-large;
+}
+
+form select{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
 
-
 function CreateAdvicePage() {
   const [title, setTitle] = useState("");
   const [problemDescription, setProblemDescription] = useState("");
@@ -12,10 +11,8 @@ function CreateAdvicePage() {
   const [chosenProducts, setChosenProducts] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
-  
-  const storedToken = localStorage.getItem("authToken");
-  
 
+  const storedToken = localStorage.getItem("authToken");
 
   useEffect(() => {
     fetchProducts();
@@ -32,21 +29,23 @@ function CreateAdvicePage() {
       });
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setErrorMsg("");
 
-    const requestBody = { title, problemDescription, advice, products: chosenProducts };
-
+    const requestBody = {
+      title,
+      problemDescription,
+      advice,
+      products: chosenProducts,
+    };
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/advices/create`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-
         setTitle("");
         setProblemDescription("");
         setAdvice("");
@@ -60,53 +59,63 @@ function CreateAdvicePage() {
   };
 
   return (
-    <div>
-      <h3>Add your Advice:</h3>
-<br/>
-      <form onSubmit={handleSubmit}>
-        <label>Title:</label>
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-<br/>
-        <label>Description of Skin-Issue:</label>
-        <textarea
-          name="problemDescription"
-          value={problemDescription}
-          onChange={(e) => setProblemDescription(e.target.value)}
-        />
-<br/>
-        <label>Advice to solve Skin-Issue:</label>
-        <textarea
-          name="advice"
-          value={advice}
-          onChange={(e) => setAdvice(e.target.value)}
-        />
-<br/>
+    <div className="row justify-content-center">
+      <h3 className="m-3">Add your Advice:</h3>
 
-<label>
-          Select products related:
-          <br /> 
-          <select
-            multiple={true}
-            value={chosenProducts}
-            onChange={(e) => {
-              setChosenProducts([...chosenProducts, e.target.value]);
-            }}
-          >
-            {products.map((product) => {
-              return (
-                <option key={product._id} value={product._id}>
-                  {product.title}
-                </option>
-              );
-            })}
-          </select>
-        </label> 
-        <button type="submit">Create Advice</button>
+      <form className="w-50 m-2" onSubmit={handleSubmit}>
+        <div className="form-group my-3">
+          <label>Title:</label>
+          <input
+            className="form-control my-3"
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Description of Skin-Issue:</label>
+          <textarea
+            className="form-control my-3"
+            name="problemDescription"
+            value={problemDescription}
+            onChange={(e) => setProblemDescription(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Advice to solve Skin-Issue:</label>
+          <textarea
+            className="form-control my-3"
+            name="advice"
+            value={advice}
+            onChange={(e) => setAdvice(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>
+            Select products related:
+            <select
+              className="form-control my-3"
+              multiple={true}
+              value={chosenProducts}
+              onChange={(e) => {
+                setChosenProducts([...chosenProducts, e.target.value]);
+              }}
+            >
+              {products.map((product) => {
+                return (
+                  <option key={product._id} value={product._id}>
+                    {product.title}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        </div>
+
+        <button className="btn btn-light my-4" type="submit">
+          Create Advice
+        </button>
       </form>
     </div>
   );

@@ -34,7 +34,7 @@ function HomePage() {
           />
 
           <Carousel.Caption className="mb-5">
-            <h1>SkincareHacks</h1>
+            <h1 className="carousel-h1">SkincareHacks</h1>
             <p>
               You have skin-advices for others? Share your experiences and help
               others find their skincare-routine.
@@ -49,7 +49,7 @@ function HomePage() {
           />
 
           <Carousel.Caption className="mb-5">
-            <h1>SkincareHacks</h1>
+            <h1 className="carousel-h1">SkincareHacks</h1>
             <p>Here to get inspiration and new Hacks? Let`s go!</p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -59,12 +59,12 @@ function HomePage() {
         <div className=" row justify-content-center m-5">
         <div className="card col-10 col-sm-6 col-md-5 d-flex text-center shadow-lg p-3 m-3">
         <img src={require("../images/beauty6.jpeg")} class="card-img-top img-fluid max-width:100% height:auto" alt=""/>
-          <Link to={"/advices"}>Advices</Link>
+          <Link className="link-to" to={"/advices"}>Advices</Link>
         </div>
         
         <div className="card col-10 col-sm-6 col-md-5 d-flex text-center shadow-lg p-3 m-3">
         <img src={require("../images/beauty35.jpeg")} class="card-img-top img-fluid max-width:100% height:auto" alt=""/>
-          <Link to={"/products"}>Products</Link>
+          <Link className="link-to" to={"/products"}>Products</Link>
         </div>
         </div>
         </div>

@@ -73,34 +73,40 @@ const deleteProduct = () => {
 };  
 
 return (
-  <div>
-      <h3>Edit Product</h3>
+  <div className="row justify-content-center">
+      <h3 className="m-3">Edit Product</h3>
 
-      <form onSubmit={handleFormSubmit}>
+      <form className="w-50 m-2" onSubmit={handleFormSubmit}>
+      <div className="form-group my-3">
           <label>Title:</label>
-          <input
+          <input className="form-control my-3"
               type="text"
               name="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
           />
-
+</div>
+<div className="form-group">
           <label>Description of Skin-Issue:</label>
-          <textarea
+          <textarea className="form-control my-3"
               name="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
           />
+
+</div>
+<div className="form-group">
           <label>Brands:</label>
-          <textarea
+          <textarea className="form-control my-3"
               name="brands"
               value={brands}
               onChange={(e) => setBrands(e.target.value)}
           />
+          </div>
+          <div className="form-group">
 <label>
           Select advices related:
-          <br />
-          <select
+          <select className="form-control my-3"
             multiple={true}
             value={chosenAdvices}
             onChange={(e) => {
@@ -116,9 +122,10 @@ return (
             })}
           </select>
         </label>
-          <button type="submit">Update Product</button>
+        </div>
+          <button className="btn btn-light" type="submit">Update Product</button> <br/>
+          <button className="btn btn-outline-danger btn-sm m-5" onClick={deleteProduct}>Delete Product</button>
       </form>
-      <button onClick={deleteProduct}>Delete Product</button>
   </div>
 );
 }
