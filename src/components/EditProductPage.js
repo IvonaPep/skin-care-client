@@ -67,8 +67,7 @@ const deleteProduct = () => {
     .delete(`${process.env.REACT_APP_API_URL}/products/${productId}`,
     { headers: { Authorization: `Bearer ${storedToken}` } }
     )
-    .then(() => {
-      navigate("/products");
+    .then(() => {navigate('/products')
     })
     .catch((err) => console.log(err));
 };  

@@ -5,6 +5,7 @@ import { FaCrown } from 'react-icons/fa';
 
 function Navbar() {
 
+
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext); 
 
     return (
@@ -21,8 +22,9 @@ function Navbar() {
                         {user && user.username} <FaCrown className="mb-2 me-1"/></span> 
 
                          
-                        
-                    <button className="navbar-brand me-3 ms-auto" onClick={logOutUser}>Logout</button>
+                        <div className="navbar-brand ms-5 pe-5"></div>
+                    <button className="navbar-brand me-4 ms-auto" onClick={logOutUser}>Logout</button>
+                    
                 </>
             )}
 
