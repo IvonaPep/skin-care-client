@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Libre+Baskerville&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Libre+Baskerville&display=swap");
 
-body{
+body {
   padding-top: 6em;
 }
 
@@ -8,109 +8,178 @@ body{
   text-align: center;
 }
 
-h2, h3, h4 {
-  font-family: 'Dancing Script', "cursive";
+h2,
+h3,
+h4 {
+  font-family: "Dancing Script", "cursive";
   color: #674440;
 }
-h1{
-  font-family: 'Dancing Script', "cursive";
-  color:#af064f;
+h1 {
+  font-family: "Dancing Script", "cursive";
+  color: #af064f;
 }
-.carousel-h1{
-  font-family: 'Dancing Script', "cursive";
+.carousel-h1 {
+  font-family: "Dancing Script", "cursive";
   font-size: 4em;
   color: white;
 }
 
-p{
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-.navbar{
-background-color: #b98c87;
+.navbar {
+  background-color: #b98c87;
 }
-.navbar-brand{
+.navbar-brand {
   text-decoration: none;
   color: #674440;
-  font-family: 'Dancing Script', "cursive";
+  font-family: "Dancing Script", "cursive";
 }
-.username{
-  font-family: 'Dancing Script', "cursive";
+.username {
+  font-family: "Dancing Script", "cursive";
   font-size: xx-large;
   color: #563936;
 }
-.carousel-img{
+.carousel-img {
   height: 50vh;
 }
 
 .carousel-item:before {
-  content:"";
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  background:rgba(189, 188, 188, 0.7);
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(189, 188, 188, 0.7);
 }
 
-.card .card-header{
+.card .card-header {
   background-color: #dac0a7;
-  color: #674440;;
+  color: #674440;
 }
 
-.card p{
-  color:#af064f;
+.card p {
+  color: #af064f;
   font-weight: bolder;
 }
- .link{
+.link {
   text-decoration: none;
-  color:#674440;
- }
+  color: #674440;
+}
 
- .advice-subheader{
- font-weight: bolder;
- font-size: larger;
- color:#dcd5ce;
- background-color: #674440;
- border-radius: 10%;
- margin-bottom: 3em;
- }
+.advice-subheader {
+  color: #674440;
+  font-size: larger;
+  font-weight: bolder;
+  background-color: #cfb195;
+  width: 1em;
+  height: 3em;
+  text-align: center;
+  position: relative;
+  margin: 3em auto;
+}
+.advice-subheader:before,
+.advice-subheader:after {
+  background-color: #9d7a59;
+  width: 2.5em;
+  height: 3em;
+  content: "";
+  display: block;
+  transform: skewY(20deg);
+  position: absolute;
+  z-index: -1;
+}
+.advice-subheader:before {
+  top: 10px;
+  left: 0;
+}
+.advice-subheader:after {
+  top: -10px;
+  right: 0;
+}
 
-.advice-text{
+.advice-text {
   margin: 3em;
   color: #674440;
   font-weight: bold;
   font-size: larger;
 }
 
-.link-to{
+.link-to {
   font-weight: bolder;
- color:#dcd5ce;
- background-color: #674440;
- margin-bottom: 3em;
- border-radius: 10%;
+  font-family: "Dancing Script", "cursive";
+  color: #af064f;
+  font-size: xx-large;
+  border-bottom: 1px solid #9d7a59;
+  margin: 15px 0;
+  padding: 5px 0;
+  position: relative;
+}
+.link-to:before,
+.link-to:after{
+  content: '';
+    border-right: 25px solid #dcd5ce;
+    border-top: 15px solid #9d7a59;
+    bottom: -15px;
+    position: absolute;
+    left: 25px;
+}
+.link-to:after{
+  border-top-color: #dcd5ce;
+    border-right-color: transparent;
+    bottom: -13px;
+    left: 27px;
 }
 
-li{
+.link-to-home {
+  font-weight: bolder;
+  font-family: "Dancing Script", "cursive";
+  color: #af064f;
+  font-size: xx-large;
+  border-bottom: 1px solid #9d7a59;
+  margin: 15px 0;
+  padding: 5px 0;
+  position: relative;
+}
+.link-to-home:before,
+.link-to-home:after{
+  content: '';
+    border-right: 25px solid white;
+    border-top: 15px solid #9d7a59;
+    bottom: -15px;
+    position: absolute;
+    left: 25px;
+}
+.link-to-home:after{
+  border-top-color: white;
+    border-right-color: transparent;
+    bottom: -13px;
+    left: 27px;
+}
+
+
+li {
   list-style-type: none;
 }
 
-.link-deco{
+.link-deco {
   text-decoration-color: #af064f;
 }
 
-.link-deco p{
+.link-deco p {
+  color: #674440;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: large;
+}
+
+form label,
+.form-p {
+  font-family: "Dancing Script", "cursive";
   color: #af064f;
-  font-family: 'Dancing Script', "cursive";
   font-size: x-large;
-
 }
 
-form label, .form-p{
-  font-family: 'Dancing Script', "cursive";
-  color: #af064f;
-  font-size:x-large;
-}
-
-form select{
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+form select {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }

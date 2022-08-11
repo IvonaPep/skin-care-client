@@ -58,13 +58,13 @@ function HomePage() {
       <div className="container">
         <div className=" row justify-content-center m-5">
         <div className="card col-10 col-sm-6 col-md-5 d-flex text-center shadow-lg p-3 m-3">
-        <img src={require("../images/beauty6.jpeg")} class="card-img-top img-fluid max-width:100% height:auto" alt=""/>
-          <Link className="link-to" to={"/advices"}>Advices</Link>
+        <img src={require("../images/beauty22.jpeg")} class="card-img-top img-fluid max-width:100% height:auto" alt=""/>
+          <Link className="link-to-home" to={"/advices"}>Advices</Link>
         </div>
         
         <div className="card col-10 col-sm-6 col-md-5 d-flex text-center shadow-lg p-3 m-3">
-        <img src={require("../images/beauty35.jpeg")} class="card-img-top img-fluid max-width:100% height:auto" alt=""/>
-          <Link className="link-to" to={"/products"}>Products</Link>
+        <img src={require("../images/beauty15.jpeg")} class="card-img-top img-fluid max-width:100% height:auto" alt=""/>
+          <Link className="link-to-home" to={"/products"}>Products</Link>
         </div>
         </div>
         </div>

@@ -33,7 +33,7 @@ function ProductsList() {
         <div className="row justify-content-center">
           {products.map((product) => {
             return (
-              <div className="card-deck col-10 col-sm-5 d-flex">
+              <div className="card-deck col-10 col-md-6 lg-5 d-flex">
                 <div className="card text-center shadow-lg p-4 m-4 w-100">
                   <div key={product._id} className="advices">
                     <div className="card-header">

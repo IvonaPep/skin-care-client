@@ -29,7 +29,7 @@ function ProductDetails() {
       {product && (
         <>
           <h1 className="mt-5">{product.title}</h1>
-          <p className="advice-text w-50">{product.description}</p>
+          <p className="advice-text w-75">{product.description}</p>
           <p className="">{product?.brands}</p>
         </>
       )}<br/>

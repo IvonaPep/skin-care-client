@@ -31,7 +31,7 @@ function Navbar() {
             {!isLoggedIn && (
                 <>
                     <NavLink className="navbar-brand mx-2 ms-auto" to="/signup">Sign Up</NavLink>
-                    <NavLink className="navbar-brand mx-2 me-3" to="/login">Login</NavLink>
+                    <NavLink className="navbar-brand mx-2 me-3 pe-4" to="/login">Login</NavLink>
                 </>
             )}
 
