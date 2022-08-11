@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
+import Select from "react-select";
 
 function EditAdvicePage() {
   const [title, setTitle] = useState("");
@@ -12,12 +13,10 @@ function EditAdvicePage() {
   const { adviceId } = useParams();
   const navigate = useNavigate();
 
- 
   const storedToken = localStorage.getItem("authToken");
   useEffect(() => {
     fetchProducts();
   }, []);
-
 
   const fetchProducts = () => {
     axios
@@ -29,7 +28,7 @@ function EditAdvicePage() {
         console.log(e);
       });
   };
-  
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/advices/${adviceId}`)
@@ -37,7 +36,6 @@ function EditAdvicePage() {
         setTitle(response.data.title);
         setProblemDescription(response.data.problemDescription);
         setAdvice(response.data.advice);
-
       })
       .catch((e) => {
         console.log(e);
@@ -46,89 +44,105 @@ function EditAdvicePage() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-   
-    const requestBody = { title, problemDescription, advice, products: chosenProducts };
-    
+
+    const requestBody = {
+      title,
+      problemDescription,
+      advice,
+      products: chosenProducts,
+    };
+
     // Make a PUT request to update the advice
     axios
-        .put(
-            `${process.env.REACT_APP_API_URL}/advices/${adviceId}`, 
-            requestBody,
-            { headers: { Authorization: `Bearer ${storedToken}` } }
-        )
-        .then((response) => {
-         
-            navigate(`/advices/${adviceId}`)
-        });
-};
- 
-const deleteAdvice = () => {         
-  
-  axios
-    .delete(`${process.env.REACT_APP_API_URL}/advices/${adviceId}`,
-    { headers: { Authorization: `Bearer ${storedToken}` } }
-    )
-    .then(() => {
-      navigate("/advices");
-    })
-    .catch((err) => console.log(err));
-};  
+      .put(
+        `${process.env.REACT_APP_API_URL}/advices/${adviceId}`,
+        requestBody,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then((response) => {
+        navigate(`/advices/${adviceId}`);
+      });
+  };
 
-return (
-  <div className="row justify-content-center">
+  const deleteAdvice = () => {
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/advices/${adviceId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` }
+      })
+      .then(() => {navigate('/advices')
+      })
+      .catch((err) => console.log(err));
+  };
+
+  return (
+    <div className="row justify-content-center">
       <h3 className="m-3">Edit Advice</h3>
 
       <form className="w-50 m-2" onSubmit={handleFormSubmit}>
-      <div className="form-group my-3">
+        <div className="form-group my-3">
           <label>Title:</label>
-          <input className="form-control my-3"
-              type="text"
-              name="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+          <input
+            required
+            className="form-control my-3"
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
-</div>
-<div className="form-group">
-          <label>Description of Skin-Issue:</label>
-          <textarea className="form-control my-3"
-              name="problemDescription"
-              value={problemDescription}
-              onChange={(e) => setProblemDescription(e.target.value)}
-          />
-</div>
-<div className="form-group">
-<label>Advice to solve Skin-Issue:</label>
-          <textarea className="form-control my-3"
-              name="advice"
-              value={advice}
-              onChange={(e) => setAdvice(e.target.value)}
-          />
-</div>
-<div className="form-group">
-<label>
-          Select products related:
-          <select className="form-control my-3"
-            multiple={true}
-            value={chosenProducts}
-            onChange={(e) => {
-              setChosenProducts([...chosenProducts, e.target.value]);
-            }}
-          >
-            {products.map((product) => {
-              return (
-                <option key={product._id} value={product._id}>
-                  {product.title}
-                </option>
-              );
-            })}
-          </select>
-        </label> 
         </div>
-          <button className="btn btn-light" type="submit">Update Advice</button> <br/>
-          <button className="btn btn-outline-danger btn-sm m-5" onClick={deleteAdvice}>Delete Advice</button>
-      </form>    
-  </div>
-);
+        <div className="form-group">
+          <label>Description of Skin-Issue:</label>
+          <textarea
+            required
+            className="form-control my-3"
+            name="problemDescription"
+            value={problemDescription}
+            onChange={(e) => setProblemDescription(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Advice to solve Skin-Issue:</label>
+          <textarea
+            required
+            className="form-control my-3"
+            name="advice"
+            value={advice}
+            onChange={(e) => setAdvice(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>
+            Select products related:
+            <Select className="form-control my-3"
+              closeMenuOnSelect={false}
+              options={products.map((product) => ({
+                label: product.title,
+                value: product._id
+              }))}
+              isMulti
+              onChange={(e) => {
+                setChosenProducts(
+                  e.map((element) => {
+                    return element.value;
+                  })
+                );
+              }}
+            />
+          </label>
+        </div>
+        <button className="btn btn-light" type="submit">
+          Update Advice
+        </button>{" "}
+        <br />
+        <button
+          className="btn btn-outline-danger btn-sm m-5"
+          onClick={deleteAdvice}
+        >
+          Delete Advice
+        </button>
+      </form>
+    </div>
+  );
 }
 
 export default EditAdvicePage;

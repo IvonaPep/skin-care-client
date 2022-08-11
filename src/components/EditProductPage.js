@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
+import Select from "react-select";
 
 function EditProductPage() {
   const [title, setTitle] = useState("");
@@ -106,21 +107,21 @@ return (
           <div className="form-group">
 <label>
           Select advices related:
-          <select className="form-control my-3"
-            multiple={true}
-            value={chosenAdvices}
-            onChange={(e) => {
-              setChosenAdvices([...chosenAdvices, e.target.value]);
-            }}
-          >
-            {advices.map((advice) => {
-              return (
-                <option key={advice._id} value={advice._id}>
-                  {advice.title}
-                </option>
-              );
-            })}
-          </select>
+          <Select className="form-control my-3"
+              closeMenuOnSelect={false}
+              options={advices.map((advice) => ({
+                label: advice.title,
+                value: advice._id
+              }))}
+              isMulti
+              onChange={(e) => {
+                setChosenAdvices(
+                  e.map((element) => {
+                    return element.value;
+                  })
+                );
+              }}
+            />
         </label>
         </div>
           <button className="btn btn-light" type="submit">Update Product</button> <br/>

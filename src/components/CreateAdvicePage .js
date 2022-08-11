@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
+import Select from "react-select";
 
 function CreateAdvicePage() {
   const [title, setTitle] = useState("");
@@ -13,7 +14,6 @@ function CreateAdvicePage() {
   const navigate = useNavigate();
 
   const storedToken = localStorage.getItem("authToken");
-
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -40,7 +40,6 @@ function CreateAdvicePage() {
       advice,
       products: chosenProducts,
     };
-
     axios
       .post(`${process.env.REACT_APP_API_URL}/advices/create`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -66,6 +65,7 @@ function CreateAdvicePage() {
         <div className="form-group my-3">
           <label>Title:</label>
           <input
+            required
             className="form-control my-3"
             type="text"
             name="title"
@@ -76,6 +76,7 @@ function CreateAdvicePage() {
         <div className="form-group">
           <label>Description of Skin-Issue:</label>
           <textarea
+            required
             className="form-control my-3"
             name="problemDescription"
             value={problemDescription}
@@ -85,6 +86,7 @@ function CreateAdvicePage() {
         <div className="form-group">
           <label>Advice to solve Skin-Issue:</label>
           <textarea
+            required
             className="form-control my-3"
             name="advice"
             value={advice}
@@ -94,22 +96,21 @@ function CreateAdvicePage() {
         <div className="form-group">
           <label>
             Select products related:
-            <select
-              className="form-control my-3"
-              multiple={true}
-              value={chosenProducts}
+            <Select className="form-control my-3"
+              closeMenuOnSelect={false}
+              options={products.map((product) => ({
+                label: product.title,
+                value: product._id
+              }))}
+              isMulti
               onChange={(e) => {
-                setChosenProducts([...chosenProducts, e.target.value]);
-              }}
-            >
-              {products.map((product) => {
-                return (
-                  <option key={product._id} value={product._id}>
-                    {product.title}
-                  </option>
+                setChosenProducts(
+                  e.map((element) => {
+                    return element.value;
+                  })
                 );
-              })}
-            </select>
+              }}
+            />
           </label>
         </div>
 

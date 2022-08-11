@@ -71,6 +71,7 @@ background-color: #b98c87;
  font-size: larger;
  color:#dcd5ce;
  background-color: #674440;
+ border-radius: 10%;
  margin-bottom: 3em;
  }
 
@@ -86,6 +87,7 @@ background-color: #b98c87;
  color:#dcd5ce;
  background-color: #674440;
  margin-bottom: 3em;
+ border-radius: 10%;
 }
 
 li{

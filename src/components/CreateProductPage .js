@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
+import Select from "react-select";
 
 function CreateProductPage() {
   const [title, setTitle] = useState("");
@@ -62,7 +63,7 @@ function CreateProductPage() {
       <form className="w-50 m-2" onSubmit={handleSubmit}>
       <div className="form-group my-3">
         <label>Title:</label>
-        <input className="form-control my-3"
+        <input required className="form-control my-3"
           type="text"
           name="title"
           value={title}
@@ -71,7 +72,7 @@ function CreateProductPage() {
         </div>
         <div className="form-group">
         <label>Description of the Product:</label>
-        <textarea className="form-control my-3"
+        <textarea required className="form-control my-3"
           type="text"
           name="description"
           value={description}
@@ -80,7 +81,7 @@ function CreateProductPage() {
         </div>
         <div className="form-group">
         <label>Brands:</label>
-        <textarea className="form-control my-3"
+        <textarea required className="form-control my-3"
           type="text"
           name="brands"
           value={brands}
@@ -90,21 +91,21 @@ function CreateProductPage() {
         <div className="form-group">
         <label>
           Select advices related:
-          <select className="form-control my-3"
-            multiple={true}
-            value={chosenAdvices}
-            onChange={(e) => {
-              setChosenAdvices([...chosenAdvices, e.target.value]);
-            }}
-          >
-            {advices.map((advice) => {
-              return (
-                <option key={advice._id} value={advice._id}>
-                  {advice.title}
-                </option>
-              );
-            })}
-          </select>
+          <Select className="form-control my-3"
+              closeMenuOnSelect={false}
+              options={advices.map((advice) => ({
+                label: advice.title,
+                value: advice._id
+              }))}
+              isMulti
+              onChange={(e) => {
+                setChosenAdvices(
+                  e.map((element) => {
+                    return element.value;
+                  })
+                );
+              }}
+            />
         </label>
         </div>
         <button className="btn btn-light my-4" type="submit">Add Product</button>

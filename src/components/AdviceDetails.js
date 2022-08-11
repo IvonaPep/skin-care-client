@@ -30,7 +30,7 @@ function AdviceDetails() {
       {advice && (
         <>
           <h1 className="mt-5">{advice.title}</h1>
-          <p className="advice-subheader w-50">{advice.problemDescription}</p>
+          <p className="advice-subheader w-50 px-5">{advice.problemDescription}</p>
           <p className="advice-text w-50">{advice.advice}</p>
         </>
       )}
