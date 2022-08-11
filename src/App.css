@@ -8,13 +8,13 @@ body {
   text-align: center;
 }
 
-h2,
-h3,
-h4 {
+
+h3
+{
   font-family: "Dancing Script", "cursive";
   color: #674440;
 }
-h1 {
+h1, h2, h4 {
   font-family: "Dancing Script", "cursive";
   color: #af064f;
 }
@@ -53,6 +53,14 @@ p {
   right: 0;
   background: rgba(189, 188, 188, 0.7);
 }
+.card:hover{
+  transform: scale(1.1);
+}
+.card{
+  transition: transform .5s;
+  cursor: pointer;
+}
+
 
 .card .card-header {
   background-color: #dac0a7;

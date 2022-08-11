@@ -87,7 +87,7 @@ return (
           />
 </div>
 <div className="form-group">
-          <label>Description of Skin-Issue:</label>
+          <label>Description of Product:</label>
           <textarea className="form-control my-3"
               name="description"
               value={description}

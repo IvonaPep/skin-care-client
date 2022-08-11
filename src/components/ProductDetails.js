@@ -28,9 +28,10 @@ function ProductDetails() {
     <div className="row justify-content-center">
       {product && (
         <>
-          <h1 className="mt-5">{product.title}</h1>
-          <p className="advice-text w-75">{product.description}</p>
-          <p className="">{product?.brands}</p>
+          <h1 className="my-4">{product.title}</h1>
+          <p className="advice-text w-50">{product.description}</p>
+          <h4>This Brands of "{product.title}" I can recommend:</h4>
+          <p className="advice-text w-50">{product?.brands}</p>
         </>
       )}<br/>
      <p className="link-to w-50">Look also here for more tips:</p>
