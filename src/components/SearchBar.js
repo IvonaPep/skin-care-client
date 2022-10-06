@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchBar({ searchProducts }) {
+function SearchBar({ searchElements }) {
   const [searched, setSearched] = useState("");
 
   return (
@@ -12,7 +12,7 @@ function SearchBar({ searchProducts }) {
         value={searched}
         onChange={(e) => {
           setSearched(e.target.value);
-          searchProducts(e.target.value);
+          searchElements(e.target.value);
         }}
       />
     </div>

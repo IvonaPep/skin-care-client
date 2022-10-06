@@ -24,7 +24,7 @@ function ProductsList() {
       });
   };
 
-  const searchProducts = (str) => {
+  const searchElements = (str) => {
     setSearchInput(str)
     const filtered = products.filter((product) =>
       product.title.trim()
@@ -37,7 +37,7 @@ function ProductsList() {
   return (
     <div>
       <h1>List of Products</h1>
-      <SearchBar searchProducts={searchProducts} />
+      <SearchBar searchElements={searchElements} />
       <button className="btn btn-light my-4">
         <Link className="link" to={`/products/create`}>
           Add a new product
